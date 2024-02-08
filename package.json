@@ -1,5 +1,5 @@
 {
-  "name": "quickfile-auto-login",
+  "name": "autologin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,16 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "md5": "^2.3.0",
+    "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/md5": "^2.3.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.8",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "eslint-config-next": "14.1.0",
+    "typescript": "^5"
   }
 }
