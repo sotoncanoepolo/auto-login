@@ -1,4 +1,4 @@
-import {verify} from "jsonwebtoken";
+import {JwtPayload, verify} from "jsonwebtoken";
 import {v4} from "uuid"
 import md5 from "md5"
 
@@ -13,7 +13,7 @@ function createMD5Value(submission: string): string {
 }
 
 export async function getServerSideProps({ params }: { params: { jwt: string } }) {
-    let client_id = verify(params.jwt, process.env.JWT_SECRET ?? "");
+    let jwtPayload = verify(params.jwt, process.env.JWT_SECRET ?? "") as JwtPayload;
     let submission_number = v4();
     let payload = {
         Header: {
@@ -29,7 +29,7 @@ export async function getServerSideProps({ params }: { params: { jwt: string } }
             LandingPage: {
                 Dashboard: "true"
             },
-            ClientID: client_id
+            ClientID: jwtPayload.client_id
         }
     };
 
