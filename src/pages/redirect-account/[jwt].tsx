@@ -15,7 +15,6 @@ function createMD5Value(submission: string): string {
 export async function getServerSideProps({ params }: { params: { jwt: string } }) {
     let client_id = verify(params.jwt, process.env.JWT_SECRET ?? "");
     let submission_number = v4();
-    console.log(client_id);
     let payload = {
         Header: {
             MessageType: "Request",
